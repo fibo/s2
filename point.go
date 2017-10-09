@@ -45,7 +45,6 @@ func Infinity() Point {
 // LFT computes a Linear fraction transformation (https://en.wikipedia.org/wiki/Linear_fractional_transformation)
 func LFT(p Point, m m2c.Matrix) Point {
 	q := Point{m.A*p.Z + m.B*p.W, m.C*p.Z + m.D*p.W}
-	q.Norm()
 	return q
 }
 
@@ -61,5 +60,5 @@ func (p *Point) Norm() {
 
 // Zero returns the origin point {0, 0}.
 func Zero() Point {
-	return Point{0, 0}
+	return Point{0, 1}
 }
