@@ -1,12 +1,3 @@
-// Package s2 implements the Riemann Sphere (https://en.wikipedia.org/wiki/Riemann_sphere)
-// which extends the complex plane by adding one point at Infinity.
-// Actually is the plane plus one point, say it the North pole,
-// with some good math formulas to ensure nice behaviuors, in
-// particular to avoid functions discontinuity and other goodies like
-// conformal map (https://en.wikipedia.org/wiki/Conformal_map) i.e.
-// circles are mapped into circles.
-// I dedicate this work to my father Umberto Casati and the great
-// mathematician Luigi Bianchi who was a great inspiration for me.
 package s2
 
 import (
