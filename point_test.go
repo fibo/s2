@@ -74,3 +74,23 @@ func TestLFT(t *testing.T) {
 		}
 	}
 }
+
+func TestInv(t *testing.T) {
+	unit := Circle{1, 0, 1}
+	origin := Point{0, 0}
+	cases := []struct {
+		in        Point
+		out       Point
+		inversion Circle
+	}{
+		{origin, inf, unit},
+	}
+
+	for _, point := range cases {
+		point.in.Inv(point.inversion)
+
+		if !Eq(point.out, point.in) {
+			t.Errorf("Point %v is not the inversion of %v", point.out, point.in)
+		}
+	}
+}

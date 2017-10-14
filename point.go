@@ -46,6 +46,11 @@ func Infinity() Point {
 	return Point{1, 0}
 }
 
+// Inv implements inversion respect to a circle.
+func (p *Point) Inv(c Circle) {
+	p = LFT(Point{p.Z, p.W}, m2c.Matrix{c.A + 0i, cmplx.Conj(c.C), c.C, c.D + 0i})
+}
+
 // LFT computes a Linear fractional transformation (https://en.wikipedia.org/wiki/Linear_fractional_transformation).
 func LFT(p Point, m m2c.Matrix) Point {
 	return Point{m.A*p.Z + m.B*p.W, m.C*p.Z + m.D*p.W}
