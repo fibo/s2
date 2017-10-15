@@ -22,23 +22,9 @@ func Conj(p Point) Point {
 	return Point{cmplx.Conj(p.Z), cmplx.Conj(p.W)}
 }
 
-// Eq checks that two points are equal.
-func Eq(p Point, q Point) bool {
-	if p.W == 0 {
-		if q.W == 0 {
-			// Both p, q are Infinity.
-			return true
-		} else {
-			return p.Z*q.W == p.W*q.Z
-		}
-	} else {
-		if q.W == 0 {
-			// Point q is Infinity, but p is not.
-			return false
-		} else {
-			return p.Z*q.W == p.W*q.Z
-		}
-	}
+// PointEq checks that two points are equal.
+func PointEq(p Point, q Point) bool {
+	return p.Z*q.W == p.W*q.Z
 }
 
 // Infinity returns the point at infinity, i.e. with w = 0.
@@ -48,10 +34,10 @@ func Infinity() Point {
 
 // Inv implements inversion respect to a circle.
 func (p *Point) Inv(c Circle) {
-	var C = complex(c.A, 0)
-	var D = cmplx.Conj(c.C)
 	var A = -c.C
 	var B = complex(-c.D, 0)
+	var C = complex(c.A, 0)
+	var D = cmplx.Conj(c.C)
 
 	var Z = p.Z
 	var W = p.W
