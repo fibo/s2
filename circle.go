@@ -1,6 +1,6 @@
 package s2
 
-// Circles and lines are the same in this world. They are represented by
+// A Circle and a line are the same in this world. They are represented by
 // an hermitian 2x2 matrix (a, b, c, d) hence b = math.Conj(c) and
 // a and d are real numbers. Lines has a = 0.
 type Circle struct {
@@ -9,4 +9,9 @@ type Circle struct {
 	D float64
 }
 
-// TODO circle.Inv() and point.Inv() computes inversive geometry transform.
+// NewCircle constructor.
+func NewCircle(a float64, c complex128, d float64) Circle {
+	return Circle{A: a, C: c, D: d}
+}
+
+// TODO circle.Inv() computes inversive geometry transform.

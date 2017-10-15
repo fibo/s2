@@ -5,16 +5,15 @@ import (
 	"testing"
 )
 
-var z1 = Point{1 + 1i, 2}
-var z2 = Point{2 + 2i, 4}
-var z3 = Point{1 - 1i, 2}
-var z4 = Point{2 - 2i, 4}
-var inf = Infinity()
-var inf2 = Point{2, 0}
 var zero = Zero()
 var one = Point{1, 1}
 
 func TestConj(t *testing.T) {
+	var z1 = Point{1 + 1i, 2}
+	var z2 = Point{2 + 2i, 4}
+	var z3 = Point{1 - 1i, 2}
+	var z4 = Point{2 - 2i, 4}
+
 	cases := []struct {
 		a Point
 		b Point
@@ -30,6 +29,11 @@ func TestConj(t *testing.T) {
 	}
 }
 func TestEq(t *testing.T) {
+	var inf = Infinity()
+	var inf2 = Point{2, 0}
+	var z1 = Point{1 + 1i, 2}
+	var z2 = Point{2 + 2i, 4}
+
 	cases := []struct {
 		a Point
 		b Point
@@ -48,8 +52,11 @@ func TestEq(t *testing.T) {
 }
 
 func TestLFT(t *testing.T) {
-	identity := m2c.I()
-	inversion := m2c.Matrix{0, 1, 1, 0}
+	var identity = m2c.I()
+	var inversion = m2c.Matrix{A: 0, B: 1, C: 1, D: 0}
+	var inf = Infinity()
+	var inf2 = Point{2, 0}
+	var z1 = *NewPoint(2 + 8i)
 
 	cases := []struct {
 		in        Point
@@ -76,14 +83,18 @@ func TestLFT(t *testing.T) {
 }
 
 func TestInv(t *testing.T) {
-	unit := Circle{1, 0, 1}
-	origin := Point{0, 0}
+	var unit = NewCircle(1, 0, 1)
+	var z1 = NewPoint(0)
+	var inf = Infinity()
+	var z2 = NewPoint(0)
+
 	cases := []struct {
 		in        Point
 		out       Point
 		inversion Circle
 	}{
-		{origin, inf, unit},
+		{*z1, inf, unit},
+		{inf, *z2, unit},
 	}
 
 	for _, point := range cases {
