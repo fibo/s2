@@ -5,8 +5,10 @@ import (
 	"math/cmplx"
 )
 
-var abs = cmplx.Abs
-var conj = cmplx.Conj
+var (
+	abs  = cmplx.Abs
+	conj = cmplx.Conj
+)
 
 // A Circle and a line are the same in this world.
 // They are represented by an hermitian 2x2 matrix (a, b, c, d)

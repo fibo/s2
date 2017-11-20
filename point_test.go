@@ -82,7 +82,7 @@ func TestPointLFT(t *testing.T) {
 }
 
 func TestPointInv(t *testing.T) {
-	var unit = NewCircle(1, 0, 1)
+	var unit = NewCircle(0, 1)
 	var z1 = NewPoint(0)
 	var inf = Infinity()
 	var z2 = NewPoint(0)
