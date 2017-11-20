@@ -5,9 +5,9 @@ import (
 )
 
 func TestInv(t *testing.T) {
-	var unit1 = NewCircle(1, 0, 1)
-	var unit2 = NewCircle(1, 0, 1)
-	var unit3 = NewCircle(1, 0, 1)
+	var unit1 = NewCircle(0, 1)
+	var unit2 = NewCircle(0, 1)
+	var unit3 = NewCircle(0, 1)
 
 	cases := []struct {
 		in        Circle
