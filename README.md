@@ -2,8 +2,7 @@
 
 > go for the Reimann sphere
 
-[![GoDoc](https://godoc.org/github.com/fibo/s2?status.svg)](https://godoc.org/github.com/fibo/s2)
-[![GoLint](https://img.shields.io/badge/go-lint-blue.svg)](http://go-lint.appspot.com/github.com/fibo/s2)
+[![GoReference](https://pkg.go.dev/badge/github.com/fibo/s2)](https://pkg.go.dev/github.com/fibo/s2)
 
 The [Riemann sphere](https://en.wikipedia.org/wiki/Riemann_sphere)
 extends the complex plane by adding one point at Infinity.

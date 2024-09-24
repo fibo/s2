@@ -1,8 +1,9 @@
 package s2
 
 import (
-	"github.com/fibo/m2c"
 	"math/cmplx"
+
+	"github.com/fibo/m2c"
 )
 
 // A Point is represented by the couple p = (z, w) of two complex

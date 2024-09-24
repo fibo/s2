@@ -1,8 +1,9 @@
 package s2
 
 import (
-	"github.com/fibo/m2c"
 	"testing"
+
+	"github.com/fibo/m2c"
 )
 
 func TestPointConj(t *testing.T) {
@@ -49,7 +50,7 @@ func TestPointEq(t *testing.T) {
 }
 
 func TestPointLFT(t *testing.T) {
-	var identity = m2c.I()
+	var identity = m2c.Matrix{A: 1, B: 0, C: 0, D: 1}
 	var inversion = m2c.Matrix{A: 0, B: 1, C: 1, D: 0}
 	var inf = Infinity()
 	var inf2 = Point{2, 0}

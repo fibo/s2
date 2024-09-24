@@ -1,18 +1,14 @@
 package s2
 
 import (
-	"github.com/fibo/m2c"
 	"math/cmplx"
-)
 
-var (
-	abs  = cmplx.Abs
-	conj = cmplx.Conj
+	"github.com/fibo/m2c"
 )
 
 // A Circle and a line are the same in this world.
 // They are represented by an hermitian 2x2 matrix (a, b, c, d)
-// hence b = math.Conj(c) and a and d are real numbers.
+// hence b = cmplx.Conj(c) and a and d are real numbers.
 // Lines have a = 0.
 // The matrix determinant equals the negative of the radius square.
 // When determinant is zero, the circle degenerates to a line.
@@ -30,7 +26,7 @@ func NewCircle(center complex128, radius float64) Circle {
 	return Circle{
 		A: 1,
 		C: -center,
-		D: abs(center) - (radius * radius),
+		D: cmplx.Abs(center) - (radius * radius),
 	}
 }
 
@@ -47,8 +43,8 @@ func NewLine(p complex128, q complex128) Circle {
 
 // Inv computes inversive geometry transform.
 func (c *Circle) Inv(i Circle) {
-	var transform = m2c.NewMatrix(complex(i.D, 0), -conj(i.C), -i.C, complex(i.A, 0))
-	var circle = m2c.NewMatrix(complex(c.A, 0), conj(c.C), c.C, complex(c.D, 0))
+	var transform = m2c.Matrix{complex(i.D, 0), -cmplx.Conj(i.C), -i.C, complex(i.A, 0)}
+	var circle = m2c.Matrix{complex(c.A, 0), cmplx.Conj(c.C), c.C, complex(c.D, 0)}
 
 	var invertedCircle = m2c.Mul(m2c.Mul(m2c.T(m2c.Conj(transform)), m2c.T(circle)), transform)
 	c.A = real(invertedCircle.A)
